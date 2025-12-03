@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - TechZone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="index.html">🖥️ TechZone</a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="compare.html">Compare</a>
+            <a href="cart.html">Cart <span id="cart-count" class="cart-badge" style="display: none;">0</span></a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <a href="shop.html" class="back-link">&larr; Back to Shop</a>
+
+    <div class="product-wrapper">
+        <div class="product-image-box">
+            <img id="p-img" src="" alt="Product Image" class="product-main-image">
+        </div>
+
+        <div class="product-info-box">
+            <h1 id="p-name">Loading Product...</h1>
+            <h2 id="p-price" style="color: #a78bfa; font-size: 2em; margin: 15px 0;">$000</h2>
+
+            <p id="p-desc" style="color: #ccc; line-height: 1.6; margin: 20px 0;">
+                Please select a product from the shop page to see details here.
+            </p>
+
+            <div class="specs-box">
+                <h3 style="color: #a78bfa; margin-top: 0;">Technical Specifications:</h3>
+                <ul id="p-specs" style="list-style: none; padding: 0;">
+                    <li style="padding: 8px 0; border-bottom: 1px solid #444;">Loading...</li>
+                </ul>
+            </div>
+
+            <div class="product-actions">
+                <button id="add-btn" onclick="addToCart('')" class="add-to-cart-btn">
+                    Add to Cart 🛒
+                </button>
+                <button onclick="window.location.href='compare.html'" class="compare-btn">
+                    Compare Products
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="reviews-section">
+        <h2 id="user-reviews">Customer Reviews ⭐</h2>
+        <div class="reviews-box">
+            <div class="review-item">
+                <div class="review-header">
+                    <strong>Ahmed Ali</strong>
+                    <span class="stars">★★★★★</span>
+                </div>
+                <p>Excellent product! Exceeded my expectations. Great performance and build quality. Highly recommended!</p>
+                <span class="review-date">2 days ago</span>
+            </div>
+            <div class="review-item">
+                <div class="review-header">
+                    <strong>Sarah M.</strong>
+                    <span class="stars">★★★★☆</span>
+                </div>
+                <p>Great performance overall, but battery life could be better. Still a solid choice for the price.</p>
+                <span class="review-date">1 week ago</span>
+            </div>
+            <div class="review-item">
+                <div class="review-header">
+                    <strong>Mohamed K.</strong>
+                    <span class="stars">★★★★★</span>
+                </div>
+                <p>Perfect for my needs. Fast shipping and excellent customer service. Will definitely buy again!</p>
+                <span class="review-date">2 weeks ago</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 Hardware Store. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="cdc.js"></script>
+<script>
+// تحديث عداد السلة
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    
+    const cartCountElement = document.getElementById('cart-count');
+    if (cartCountElement) {
+        if (totalItems > 0) {
+            cartCountElement.textContent = totalItems;
+            cartCountElement.style.display = 'inline-block';
+        } else {
+            cartCountElement.style.display = 'none';
+        }
+    }
+}
+
+// تحديث العداد عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+});
+</script>
+</body>
+</html>
