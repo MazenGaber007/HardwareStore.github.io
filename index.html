@@ -5,11 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Hardware Store</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        }
+ #date-box {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 9999;
+}
+    </style>
 </head>
 <body>
 <!-- Header -->
+        <div id="top"></div>
+
 <header>
-    <div id="top"></div>
     <div class="header-content">
         <div class="logo">
             <div class="logo-icon">🛍️</div>
@@ -78,6 +94,19 @@ function updateCartCount() {
 document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
 });
+     function updateDateTime() {
+        const now = new Date();
+
+        const dateOptions = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+        const dateStr = now.toLocaleDateString('en-US', dateOptions);
+        const timeStr = now.toLocaleTimeString('en-US');
+
+        // Use backticks for template literals
+        document.getElementById('date-box').textContent = `${dateStr} — ${timeStr}`;
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
 </script>
 <a href="#top" class="scroll-top">⬆</a>
 </body>
