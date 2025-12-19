@@ -3,6 +3,25 @@
    ============================================ */
 
 /* Reset & Base Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 20px;
+    z-index: 9999;
+}
 * {
     margin: 0;
     padding: 0;
